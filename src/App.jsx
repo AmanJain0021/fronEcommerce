@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -7,17 +7,17 @@ import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
-import { useNavigate } from 'react-router-dom';
-const Navigate=useNavigate();
+
 function App() {
   return (
-
     <BrowserRouter>
-
       {/* Navbar always visible */}
       <Navbar />
 
       <Routes>
+        {/* Redirect root */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
         {/* Public routes */}
         <Route
           path="/login"
@@ -27,15 +27,6 @@ function App() {
             </PublicRoute>
           }
         />
-         <Route path="/" element={<Navigate to="/login" />} />
-<Route
-  path="/orders"
-  element={
-    <ProtectedRoute>
-      <Orders />
-    </ProtectedRoute>
-  }
-/>
 
         <Route
           path="/register"
@@ -56,14 +47,14 @@ function App() {
           }
         />
 
-<Route
-  path="/orders"
-  element={
-    <ProtectedRoute>
-      <Orders />
-    </ProtectedRoute>
-  }
-/>
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/cart"
