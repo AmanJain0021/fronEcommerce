@@ -25,6 +25,7 @@ function App() {
             </PublicRoute>
           }
         />
+         <Route path="/" element={<Navigate to="/login" />} />
 <Route
   path="/orders"
   element={
