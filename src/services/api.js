@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
- baseURL: "mongodb://localhost:27017/ecommerce",});
+ baseURL: import.meta.env.VITE_API_URL,
+ withCredentials:true
+});
 
 // Attach token automatically (if exists)
 api.interceptors.request.use((config) => {
