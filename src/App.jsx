@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -10,7 +10,7 @@ import Orders from "./pages/Orders";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       {/* Navbar always visible */}
       <Navbar />
 
@@ -65,7 +65,7 @@ function App() {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
