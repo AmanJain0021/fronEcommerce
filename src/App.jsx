@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
+import "./index.css";
+
 
 function App() {
   return (
