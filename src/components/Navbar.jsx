@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 text-white px-6 py-4 flex justify-between items-center">
       {/* Left side */}
       <div className="text-xl font-bold">
-        <Link to="/products">Ecommerce</Link>
+        <Link to="/api/products">Ecommerce</Link>
       </div>
 
       {/* Right side */}
