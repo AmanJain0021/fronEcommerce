@@ -7,9 +7,11 @@ import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
-
+import { useNavigate } from 'react-router-dom';
+const Navigate=useNavigate();
 function App() {
   return (
+
     <BrowserRouter>
 
       {/* Navbar always visible */}
