@@ -69,68 +69,63 @@ if (!cart || !cart.items || cart.items.length === 0) {
   return <p className="p-6">Your cart is empty.</p>;
 }
 
+return (
+  <div className="p-6 max-w-4xl mx-auto">
+    <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
 
-  return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
-
-      {cart.items.map((item) => (
-        <div
-          key={item.productId}
-          className="flex justify-between items-center border-b py-4"
-        >
-          <div>
-            <p className="font-semibold">
-              Product ID: {item.productId}
-            </p>
-            <p>Price: ₹{item.price}</p>
-            <p>Quantity: {item.quantity}</p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => handleDecrease(item.productId)}
-              className="px-3 py-1 bg-gray-300 rounded"
-            >
-              -
-            </button>
-
-            <button
-              onClick={() => handleIncrease(item.productId)}
-              className="px-3 py-1 bg-gray-300 rounded"
-            >
-              +
-            </button>
-
-            <button
-              onClick={() => handleRemove(item.productId)}
-              className="px-3 py-1 bg-red-500 text-white rounded"
-            >
-              Remove
-            </button>
-          </div>
-          <div className="text-right mt-6">
-  <p className="text-xl font-bold mb-4">
-    Total: ₹{cart.totalAmount}
-  </p>
-
-  <button
-    onClick={handlePlaceOrder}
-    className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
-  >
-    Place Order
-  </button>
-</div>
-
+    {cart.items.map((item) => (
+      <div
+        key={item.productId}
+        className="flex justify-between items-center border-b py-4"
+      >
+        <div>
+          <p className="font-semibold">Product ID: {item.productId}</p>
+          <p>Price: ₹{item.price}</p>
+          <p>Quantity: {item.quantity}</p>
+          <p className="font-medium">
+            Item Total: ₹{item.price * item.quantity}
+          </p>
         </div>
-        
-      ))}
 
-      <div className="text-right mt-6 text-xl font-bold">
-        Total: ₹{cart.totalAmount}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => handleDecrease(item.productId)}
+            className="px-3 py-1 bg-gray-300 rounded"
+          >
+            -
+          </button>
+
+          <button
+            onClick={() => handleIncrease(item.productId)}
+            className="px-3 py-1 bg-gray-300 rounded"
+          >
+            +
+          </button>
+
+          <button
+            onClick={() => handleRemove(item.productId)}
+            className="px-3 py-1 bg-red-500 text-white rounded"
+          >
+            Remove
+          </button>
+        </div>
       </div>
-    </div>
-  );
-};
+    ))}
 
+    {/* ✅ CART SUMMARY (ONCE) */}
+    <div className="text-right mt-6">
+      <p className="text-xl font-bold mb-4">
+        Total: ₹{cart.totalAmount}
+      </p>
+
+      <button
+        onClick={handlePlaceOrder}
+        className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
+      >
+        Place Order
+      </button>
+    </div>
+  </div>
+);
+}
 export default Cart;
