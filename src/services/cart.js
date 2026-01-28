@@ -1,27 +1,27 @@
 import api from "./api";
 
 export const getCart = () => {
-  return api.get("/cart");
+  return api.get("/api/cart");
 };
 
 export const removeFromCart = (productId) => {
-  return api.delete("/cart/remove", {
+  return api.delete("/api/cart/remove", {
     data: { productId },
   });
 };
 
 export const addToCart = (productId, quantity = 1) => {
-  return api.post("/cart/add", {
+  return api.post("/api/cart/add", {
     productId,
     quantity,
   });
 };
 export const decreaseQuantity = (productId) => {
-  return api.patch("/cart/decrease", { productId });
+  return api.patch("/api/cart/decrease", { productId });
 };
 
 export const increaseQuantity = (productId) => {
-  return api.post("/cart/add", {
+  return api.post("/api/cart/add", {
     productId,
     quantity: 1,
   });
