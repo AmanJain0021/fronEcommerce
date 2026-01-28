@@ -5,23 +5,23 @@ export const getCart = () => {
 };
 
 export const removeFromCart = (productId) => {
-  return api.delete("/cart/remove", {
+  return api.delete("/remove", {
     data: { productId },
   });
 };
 
 export const addToCart = (productId, quantity = 1) => {
-  return api.post("/cart/add", {
+  return api.post("/add", {
     productId,
     quantity,
   });
 };
 export const decreaseQuantity = (productId) => {
-  return api.patch("/cart/decrease", { productId });
+  return api.patch("/decrease", { productId });
 };
 
 export const increaseQuantity = (productId) => {
-  return api.post("/cart/add", {
+  return api.post("/add", {
     productId,
     quantity: 1,
   });
